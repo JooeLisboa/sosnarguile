@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import {
   ArrowUpRight,
   BadgeCheck,
@@ -68,7 +68,7 @@ const cardItems = [
   },
 ] as const;
 
-const itemMotion = {
+const itemMotion: Variants = {
   hidden: { opacity: 0, y: 18, filter: "blur(12px)" },
   show: (i: number) => ({
     opacity: 1,
@@ -77,7 +77,7 @@ const itemMotion = {
     transition: {
       delay: 0.12 + i * 0.08,
       duration: 0.65,
-      ease: [0.22, 1, 0.36, 1],
+      ease: [0.22, 1, 0.36, 1] as const,
     },
   }),
 };
